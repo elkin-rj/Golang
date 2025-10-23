@@ -1,0 +1,13 @@
+# Mi primera API en Go
+
+## Comandos importantes:
+- Ejecutar: `go run mi_api.go`
+- Ver usuarios: http://localhost:8080/users
+- Crear usuario: `curl -X POST http://localhost:8080/users -H "Content-Type: application/json" -d '{"name":"NuevoNombre"}'`
+- Eliminar usuario: `curl -X DELETE http://localhost:8080/users/1`
+
+## Lo que aprendí:
+- Crear servidor HTTP básico
+- Manejar JSON
+- Métodos GET, POST, DELETE
+- Usar curl y PowerShell
