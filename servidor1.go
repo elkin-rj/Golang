@@ -8,7 +8,7 @@ import (
 func main() {
 	// 1. Registrar un manejador (handler) para la ruta "/"
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintln(w, "¡Hola, mundo! Servidor Go en marcha.")
+		fmt.Fprintln(w, "¡Hola, Elkin! Servidor Go en marcha.")
 	})
 
 	// 2. Iniciar el servidor en el puerto 8080
