@@ -1,0 +1,39 @@
+package main
+
+import (
+	"fmt"
+	"math/rand"
+	"net/http"
+	"time"
+)
+
+func main() {
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "text/html; charset=utf-8") // ✅ importante
+		html := `
+		<html>
+			<head>
+				<meta charset="UTF-8">
+				<title>Generador de número</title>
+			</head>
+			<body>
+				<h3 align="center">Hola Elkin</h3>
+				<form align="center" action="/numero" method="post">
+					<button type="submit">Generar número</button>
+				</form>
+			</body>
+		</html>`
+		fmt.Fprint(w, html)
+	})
+
+	http.HandleFunc("/numero", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "text/html; charset=utf-8") // ✅ también aquí
+		rand.Seed(time.Now().UnixNano())
+		num := rand.Intn(100)
+		fmt.Fprintf(w, "<h2>Número aleatorio: %d</h2>", num)
+		fmt.Fprint(w, `<a href="/">Volver</a>`)
+	})
+
+	fmt.Println("Servidor corriendo en http://localhost:8080")
+	http.ListenAndServe(":8080", nil)
+}
