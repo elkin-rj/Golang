@@ -1,0 +1,1 @@
+Este es un ejemplo de texto guardado en el bloc de notas y leído por Golang
